@@ -1,0 +1,234 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* Carousel estandar */
+/* .swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+} */
+
+
+
+/* Carousel personalizado  */
+
+  swiper {
+  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+}
+ slider {
+  width: 100%;
+  max-width: 100%;
+ }
+.swiper-slide {
+  @apply w-full max-w-full max-h-screen pr-4
+        text-center text-lg bg-transparent flex justify-center items-center pt-5 
+}
+
+.swiper-slide img {
+  @apply block w-full object-cover max-w-full 
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  @apply absolute z-10  border-stone-800 pb-32 
+}
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  @apply text-stone-800
+}
+
+@media screen and (min-width: 480px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    padding: 1rem;
+  }
+}
+
+@media screen and (min-width: 780px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    padding: 1.5rem;
+  }
+}
+
+.swiper-button-next {
+  right: 10px;
+}
+
+.swiper-button-prev {
+  left: 10px;
+} 
+
+/*Transicion de componentes en turnos*/
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 500ms ;
+}
+
+/* Enlaces del navbar */
+.navegacion .link{
+  @apply inline-block p-2 relative text-lg
+}
+.navegacion .link:hover{
+  @apply  duration-300
+}
+
+.navegacion .link::after {
+  width: 0;
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+  position: absolute;
+  background: #1e1e1e;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+} 
+
+.navegacion .link:hover::after {
+  @apply w-full left-0 
+}
+
+.navegacion .activo {
+  @apply inline-block py-2 px-[10px] relative text-[#1e1e1e]
+}
+
+.navegacion .activo::after {
+  background: none repeat scroll 0 0 transparent;
+  color:#1e1e1e;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 0;
+  position: absolute;
+  background: #1e1e1e;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 100%;
+}
+
+
+/*Menu Hamburguesa Animado*/
+
+.bars__menu{
+  @apply w-[30px] h-[30px] cursor-pointer  
+}
+
+.bars__menu span{
+  @apply block w-full h-[2px] bg-black  mt-[6px] origin-bottom-left  transition-all duration-500
+} 
+.bars__menu .line1__bars-menu{
+  @apply rotate-45 translate-x-[-2px] translate-y-[-3px]   
+} 
+.bars__menu .line2__bars-menu{
+  @apply ml-[-30px] opacity-0
+} 
+.bars__menu .line3__bars-menu{
+  @apply rotate-[-45deg] translate-x-[-2px] translate-y-[2px]
+}  
+ 
+.icons__menu {
+  @apply flex justify-center items-center  rounded-full shadow-lg shadow-yellow-400 text-yellow-400 text-2xl  h-12 w-12  cursor-pointer  ease-in duration-300 hover:bg-yellow-400 hover:text-black hover:shadow-black
+}
+
+
+/* campos input login & register */
+
+.form__group {
+  position: relative;
+  padding: 15px 0 0;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.form__field {
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid #9b9b9b;
+  outline: 0;
+  font-size: 20px;
+  font-weight: 500;
+  color: #474747;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+
+.form__field::placeholder {
+  color: transparent;
+}
+
+.form__field:placeholder-shown ~ .form__label {
+  font-size: 1.3rem;
+  cursor: text;
+  top: 20px;
+}
+
+.form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-weight: 400;
+  font-size: 20px;
+  color: #9b9b9b;
+}
+
+.form__field:focus ~ .form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 12px;
+  color: #1e1e1e;
+  font-weight: 700;
+}
+
+.form__field:focus {
+  padding-bottom: 6px;
+  font-weight: 700;
+  border-width: 2px;
+  border-color: #1e1e1e;
+  border-image-slice: 1;
+}
+
+/* reset input */
+.form__field:required,
+.form__field:invalid {
+  box-shadow: none;
+}
